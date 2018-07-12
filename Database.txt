@@ -4,12 +4,12 @@ USE ProjectShop
 GO
 CREATE TABLE Danhmuccha(
 	Ma_danh_muc_cha INT IDENTITY(1,1) NOT NULL PRIMARY KEY,	
-	Ten_danh_muc NVARCHAR(50) NOT NULL
+	Ten_danh_muc_cha NVARCHAR(50) NOT NULL
 )
 CREATE TABLE Danhmuccon(
 	Ma_danh_muc_con INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	Ma_danh_muc_cha INT NOT NULL,
-	Ten_danh_muc NVARCHAR(50) NOT NULL,
+	Ten_danh_muc_con NVARCHAR(50) NOT NULL,
 	Do_uu_tien INT NOT NULL,
 	Trang_thai BIT NOT NULL,
 	FOREIGN KEY(Ma_danh_muc_cha) REFERENCES dbo.Danhmuccha(Ma_danh_muc_cha),

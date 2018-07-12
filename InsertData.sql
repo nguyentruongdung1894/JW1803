@@ -142,10 +142,20 @@ VALUES  ( 2 , -- Ma_danh_muc_con - int
           1 , -- Ma_nha_cung_cap - int
           1  -- Trang_Thai - bit
         )
-INSERT dbo.SanPham VALUES  ( 15 , N'Quần Bò' , '../jsp/' , '2013-02-15' ,  1 , 50 , 'New' , 300000 , 1 ,25 , 1 , 1)
-INSERT dbo.SanPham VALUES  ( 16 , N'Quần Bò' , '../jsp/' , '2013-02-15' ,  1 , 50 , 'New' , 300000 , 1 ,25 , 1 , 1)
-INSERT dbo.SanPham VALUES  ( 15 , N'Quần Jean' , '../jsp/' , '2013-02-15' ,  1 , 50 , 'New' , 300000 , 1 ,25 , 1 , 1)
-INSERT dbo.SanPham VALUES  ( 16 , N'Quần Jean' , '../jsp/' , '2013-02-15' ,  1 , 50 , 'New' , 300000 , 1 ,25 , 1 , 1)
+INSERT dbo.SanPham VALUES  ( 3 , N'Men Black Jeans' , '../jsp/images/m5.jpg' , '2013-02-15' ,  1 , 50 , 'New' , 642.21 , 1 ,25 , 1 , 1)
+INSERT dbo.SanPham VALUES  ( 3 , N'Analog Watch' , '../jsp/images/m7.jpg' , '2013-02-15' ,  1 , 50 , 'New' , 212.24 , 1 ,25 , 1 , 1)
+INSERT dbo.SanPham VALUES  ( 4 , N'Reversible Belt' , '../jsp/images/m6.jpg' , '2013-02-15' ,  1 , 50 , 'New' , 544.41 , 1 ,25 , 1 , 1)
+INSERT dbo.SanPham VALUES  ( 4 , N'Party Men Blazer' , '../jsp/images/m8.jpg' , '2013-02-15' ,  1 , 50 , 'New' , 124.54 , 1 ,25 , 1 , 1)
+
+
+INSERT dbo.SanPham VALUES  ( 15 , N'Quần Bò' , '../jsp/images/w1.jpg' , '2013-02-15' ,  1 , 50 , 'New' , 300000 , 1 ,25 , 1 , 1)
+INSERT dbo.SanPham VALUES  ( 16 , N'Quần Bò' , '../jsp/images/w2.jpg' , '2013-02-15' ,  1 , 50 , 'New' , 300000 , 1 ,25 , 1 , 1)
+INSERT dbo.SanPham VALUES  ( 15 , N'Quần Jean' , '../jsp/images/w3.jpg' , '2013-02-15' ,  1 , 50 , 'New' , 300000 , 1 ,25 , 1 , 1)
+INSERT dbo.SanPham VALUES  ( 16 , N'Quần Jean' , '../jsp/images/w4.jpg' , '2013-02-15' ,  1 , 50 , 'New' , 300000 , 1 ,25 , 1 , 1)
+INSERT dbo.SanPham VALUES  ( 17 , N'Pink Track Pants' , '../jsp/images/w5.jpg' , '2013-02-15' ,  1 , 50 , 'New' , 141.54 , 1 ,25 , 1 , 1)
+INSERT dbo.SanPham VALUES  ( 18 , N'Analog Watch' , '../jsp/images/w6.jpg' , '2013-02-15' ,  1 , 50 , 'New' , 545.14 , 1 ,25 , 1 , 1)
+INSERT dbo.SanPham VALUES  ( 19 , N'Ankle Length Socks' , '../jsp/images/w7.jpg' , '2013-02-15' ,  1 , 50 , 'New' , 151.21 , 1 ,25 , 1 , 1)
+INSERT dbo.SanPham VALUES  ( 20 , N'Reebok Women Tights' , '../jsp/images/w8.jpg' , '2013-02-15' ,  1 , 50 , 'New' , 125.44 , 1 ,25 , 1 , 1)
 
 ----------------Insert Túi----------------------------------------------
 
