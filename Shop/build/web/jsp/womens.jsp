@@ -209,13 +209,13 @@
                         <div  id="top" class="callbacks_container">
                             <ul class="rslides" id="slider3">
                                 <li>
-                                    <img class="img-responsive" src="images/banner4.jpg" alt=" "/>
+                                    <img class="img-responsive" src="../jsp/images/banner4.jpg" alt=" "/>
                                 </li>
                                 <li>
-                                    <img class="img-responsive" src="images/banner3.jpg" alt=" "/>
+                                    <img class="img-responsive" src="../jsp/images/banner3.jpg" alt=" "/>
                                 </li>
                                 <li>
-                                    <img class="img-responsive" src="images/banner1.jpg" alt=" "/>
+                                    <img class="img-responsive" src="../jsp/images/banner1.jpg" alt=" "/>
                                 </li>
 
                             </ul>
@@ -224,7 +224,7 @@
                     </div>
                     <div class="men-wear-bottom">
                         <div class="col-sm-4 men-wear-left">
-                            <img class="img-responsive" src="images/bb1.jpg" alt=" " />
+                            <img class="img-responsive" src="../jsp/images/bb1.jpg" alt=" " />
                         </div>
                         <div class="col-sm-8 men-wear-right">
                             <h4>Exclusive Women's <span>Collections</span></h4>
@@ -239,8 +239,8 @@
                     <div class="col-md-4 product-men">
                         <div class="men-pro-item simpleCart_shelfItem">
                             <div class="men-thumb-item">
-                                <img src="images/w4.jpg" alt="" class="pro-image-front">
-                                <img src="images/w4.jpg" alt="" class="pro-image-back">
+                                <img src="../jsp/images/w4.jpg" alt="" class="pro-image-front">
+                                <img src="../jsp/images/w4.jpg" alt="" class="pro-image-back">
                                 <div class="men-cart-pro">
                                     <div class="inner-men-cart-pro">
                                         <a href="single.html" class="link-product-add-cart">Quick View</a>
@@ -278,8 +278,8 @@
                     <div class="col-md-4 product-men">
                         <div class="men-pro-item simpleCart_shelfItem">
                             <div class="men-thumb-item">
-                                <img src="images/b7.jpg" alt="" class="pro-image-front">
-                                <img src="images/b7.jpg" alt="" class="pro-image-back">
+                                <img src="../jsp/images/b7.jpg" alt="" class="pro-image-front">
+                                <img src="../jsp/images/b7.jpg" alt="" class="pro-image-back">
                                 <div class="men-cart-pro">
                                     <div class="inner-men-cart-pro">
                                         <a href="single.html" class="link-product-add-cart">Quick View</a>
@@ -317,8 +317,8 @@
                     <div class="col-md-4 product-men">
                         <div class="men-pro-item simpleCart_shelfItem">
                             <div class="men-thumb-item">
-                                <img src="images/s6.jpg" alt="" class="pro-image-front">
-                                <img src="images/s6.jpg" alt="" class="pro-image-back">
+                                <img src="../jsp/images/s6.jpg" alt="" class="pro-image-front">
+                                <img src="../jsp/images/s6.jpg" alt="" class="pro-image-back">
                                 <div class="men-cart-pro">
                                     <div class="inner-men-cart-pro">
                                         <a href="single.html" class="link-product-add-cart">Quick View</a>
@@ -362,8 +362,8 @@
                     <div class="col-md-3 product-men">
                         <div class="men-pro-item simpleCart_shelfItem">
                             <div class="men-thumb-item">
-                                <img src="images/w1.jpg" alt="" class="pro-image-front">
-                                <img src="images/w1.jpg" alt="" class="pro-image-back">
+                                <img src="../jsp/images/w1.jpg" alt="" class="pro-image-front">
+                                <img src="../jsp/images/w1.jpg" alt="" class="pro-image-back">
                                 <div class="men-cart-pro">
                                     <div class="inner-men-cart-pro">
                                         <a href="single.html" class="link-product-add-cart">Quick View</a>
@@ -401,8 +401,8 @@
                     <div class="col-md-3 product-men">
                         <div class="men-pro-item simpleCart_shelfItem">
                             <div class="men-thumb-item">
-                                <img src="images/w2.jpg" alt="" class="pro-image-front">
-                                <img src="images/w2.jpg" alt="" class="pro-image-back">
+                                <img src="../jsp/images/w2.jpg" alt="" class="pro-image-front">
+                                <img src="../jsp/images/w2.jpg" alt="" class="pro-image-back">
                                 <div class="men-cart-pro">
                                     <div class="inner-men-cart-pro">
                                         <a href="single.html" class="link-product-add-cart">Quick View</a>
@@ -440,8 +440,8 @@
                     <div class="col-md-3 product-men">
                         <div class="men-pro-item simpleCart_shelfItem">
                             <div class="men-thumb-item">
-                                <img src="images/w3.jpg" alt="" class="pro-image-front">
-                                <img src="images/w3.jpg" alt="" class="pro-image-back">
+                                <img src="../jsp/images/w3.jpg" alt="" class="pro-image-front">
+                                <img src="../jsp/images/w3.jpg" alt="" class="pro-image-back">
                                 <div class="men-cart-pro">
                                     <div class="inner-men-cart-pro">
                                         <a href="single.html" class="link-product-add-cart">Quick View</a>
@@ -479,8 +479,8 @@
                     <div class="col-md-3 product-men">
                         <div class="men-pro-item simpleCart_shelfItem">
                             <div class="men-thumb-item">
-                                <img src="images/w4.jpg" alt="" class="pro-image-front">
-                                <img src="images/w4.jpg" alt="" class="pro-image-back">
+                                <img src="../jsp/images/w4.jpg" alt="" class="pro-image-front">
+                                <img src="../jsp/images/w4.jpg" alt="" class="pro-image-back">
                                 <div class="men-cart-pro">
                                     <div class="inner-men-cart-pro">
                                         <a href="single.html" class="link-product-add-cart">Quick View</a>
@@ -518,8 +518,8 @@
                     <div class="col-md-3 product-men">
                         <div class="men-pro-item simpleCart_shelfItem">
                             <div class="men-thumb-item">
-                                <img src="images/w5.jpg" alt="" class="pro-image-front">
-                                <img src="images/w5.jpg" alt="" class="pro-image-back">
+                                <img src="../jsp/images/w5.jpg" alt="" class="pro-image-front">
+                                <img src="../jsp/images/w5.jpg" alt="" class="pro-image-back">
                                 <div class="men-cart-pro">
                                     <div class="inner-men-cart-pro">
                                         <a href="single.html" class="link-product-add-cart">Quick View</a>
@@ -557,8 +557,8 @@
                     <div class="col-md-3 product-men">
                         <div class="men-pro-item simpleCart_shelfItem">
                             <div class="men-thumb-item">
-                                <img src="images/w6.jpg" alt="" class="pro-image-front">
-                                <img src="images/w6.jpg" alt="" class="pro-image-back">
+                                <img src="../jsp/images/w6.jpg" alt="" class="pro-image-front">
+                                <img src="../jsp/images/w6.jpg" alt="" class="pro-image-back">
                                 <div class="men-cart-pro">
                                     <div class="inner-men-cart-pro">
                                         <a href="single.html" class="link-product-add-cart">Quick View</a>
@@ -596,8 +596,8 @@
                     <div class="col-md-3 product-men">
                         <div class="men-pro-item simpleCart_shelfItem">
                             <div class="men-thumb-item">
-                                <img src="images/w7.jpg" alt="" class="pro-image-front">
-                                <img src="images/w7.jpg" alt="" class="pro-image-back">
+                                <img src="../jsp/images/w7.jpg" alt="" class="pro-image-front">
+                                <img src="../jsp/images/w7.jpg" alt="" class="pro-image-back">
                                 <div class="men-cart-pro">
                                     <div class="inner-men-cart-pro">
                                         <a href="single.html" class="link-product-add-cart">Quick View</a>
@@ -635,8 +635,8 @@
                     <div class="col-md-3 product-men">
                         <div class="men-pro-item simpleCart_shelfItem">
                             <div class="men-thumb-item">
-                                <img src="images/w8.jpg" alt="" class="pro-image-front">
-                                <img src="images/w8.jpg" alt="" class="pro-image-back">
+                                <img src="../jsp/images/w8.jpg" alt="" class="pro-image-front">
+                                <img src="../jsp/images/w8.jpg" alt="" class="pro-image-back">
                                 <div class="men-cart-pro">
                                     <div class="inner-men-cart-pro">
                                         <a href="single.html" class="link-product-add-cart">Quick View</a>
