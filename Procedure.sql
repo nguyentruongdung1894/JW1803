@@ -68,3 +68,13 @@ BEGIN
 		INNER JOIN dbo.SanPham sp ON sp.Ma_danh_muc_con = dmc.Ma_danh_muc_con
 	WHERE dm.Ma_danh_muc_cha=2 AND sp.Ma_danh_muc_con=@Id AND sp.Trang_Thai=1 
 END
+
+--Test: Exec getCart 1
+CREATE PROC getCart
+@Id INT
+AS
+BEGIN
+	SELECT sp.Ma_san_pham,sp.Ten_san_pham,sp.Don_gia
+	FROM dbo.SanPham sp 
+	WHERE sp.Trang_Thai=1 AND sp.Ma_san_pham=@Id
+END
