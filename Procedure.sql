@@ -1,3 +1,24 @@
+﻿--Test: Exec Pagination 2
+ALTER PROC Pagination
+--Đang ở trang thứ bao nhiêu
+@PageIndex INT
+--Số bản ghi tối đa trên 1 trang
+AS
+BEGIN
+--Xác định hiển thị từ x-> y
+	DECLARE @FromIndex INT , @ToIndex INT
+	SET @FromIndex=(@PageIndex-1)*2+1
+	SET @ToIndex=@PageIndex*2
+
+	SELECT * 
+	FROM(SELECT p.Ma_san_pham,p.Ten_san_pham,p.Hinh_anh,p.Don_gia,
+	ROW_NUMBER() OVER(ORDER BY p.Ma_san_pham ASC) AS RowIndex
+	FROM dbo.SanPham p) 
+	AS tblDemo
+	WHERE  tblDemo.RowIndex BETWEEN @FromIndex AND @ToIndex
+END
+
+
 
 ALTER PROC getProductMen
 AS
@@ -69,12 +90,14 @@ BEGIN
 	WHERE dm.Ma_danh_muc_cha=2 AND sp.Ma_danh_muc_con=@Id AND sp.Trang_Thai=1 
 END
 
---Test: Exec getCart 1
-CREATE PROC getCart
-@Id INT
+CREATE PROC getAdmin
 AS
 BEGIN
-	SELECT sp.Ma_san_pham,sp.Ten_san_pham,sp.Don_gia
-	FROM dbo.SanPham sp 
-	WHERE sp.Trang_Thai=1 AND sp.Ma_san_pham=@Id
+	SELECT * FROM dbo.Khach_hang kh WHERE kh.Quyen_truy_cap=1
+END
+
+CREATE PROC getUser
+AS
+BEGIN
+	SELECT * FROM dbo.Khach_hang kh WHERE kh.Quyen_truy_cap=2
 END

@@ -176,3 +176,64 @@ INSERT dbo.SanPham VALUES  ( 30 , N'Moonwalk Bellies' , '../jsp/images/s5.jpg' ,
 INSERT dbo.SanPham VALUES  ( 30 , N'Aero Canvas Loafers' , '../jsp/images/s6.jpg' , '2018-10-12' ,  1 , 50 , 'New' , 675.78 , 1 ,25 , 1 , 1)
 INSERT dbo.SanPham VALUES  ( 30 , N'Sparx Sporty Canvas Shoes' , '../jsp/images/s7.jpg' , '2018-09-24' ,  1 , 50 , 'New' , 542.54 , 1 ,25 , 1 , 1)
 INSERT dbo.SanPham VALUES  ( 30 , N'Women BLACK Heels' , '../jsp/images/s8.jpg' , '2018-01-12' ,  1 , 50 , 'New' , 687.15 , 1 ,25 , 1 , 1)
+
+DELETE FROM dbo.Khach_hang
+DBCC CHECKIDENT ('Khach_hang', RESEED, 0)
+INSERT dbo.Khach_hang
+        ( Ten_khach_hang ,
+          Ten_dang_nhap ,
+          Mat_khau ,
+          Dia_chi ,
+          So_dien_thoai ,
+          Gmail ,
+          Ngay_sinh ,
+          Quyen_truy_cap
+        )
+VALUES  ( N'Dũng' , -- Ten_khach_hang - nvarchar(20)
+          'admin' , -- Ten_dang_nhap - varchar(20)
+          'admin' , -- Mat_khau - varchar(20)
+          N'Hưng Hà Thái Bình' , -- Dia_chi - nvarchar(50)
+          123 , -- So_dien_thoai - int
+          'nguyendung1894' , -- Gmail - varchar(20)
+          '1998-04-01' , -- Ngay_sinh - date
+          1  -- Quyen_truy_cap - int
+        )
+INSERT dbo.Khach_hang
+        ( Ten_khach_hang ,
+          Ten_dang_nhap ,
+          Mat_khau ,
+          Dia_chi ,
+          So_dien_thoai ,
+          Gmail ,
+          Ngay_sinh ,
+          Quyen_truy_cap
+        )
+VALUES  ( N'Anh' , -- Ten_khach_hang - nvarchar(20)
+          'admin1' , -- Ten_dang_nhap - varchar(20)
+          'admin1' , -- Mat_khau - varchar(20)
+          N'Hưng Hà Thái Bình' , -- Dia_chi - nvarchar(50)
+          123 , -- So_dien_thoai - int
+          'nguyendung1894' , -- Gmail - varchar(20)
+          '1998-04-01' , -- Ngay_sinh - date
+          1  -- Quyen_truy_cap - int
+        )
+INSERT dbo.Khach_hang
+VALUES  ( N'Anh' , -- Ten_khach_hang - nvarchar(20)
+          'user1' , -- Ten_dang_nhap - varchar(20)
+          'user1' , -- Mat_khau - varchar(20)
+          N'Hưng Hà Thái Bình' , -- Dia_chi - nvarchar(50)
+          123 , -- So_dien_thoai - int
+          'nguyendung1894' , -- Gmail - varchar(20)
+          '1998-04-01' , -- Ngay_sinh - date
+          2  -- Quyen_truy_cap - int
+        )
+INSERT dbo.Khach_hang
+VALUES  ( N'Duc' , -- Ten_khach_hang - nvarchar(20)
+          'user2' , -- Ten_dang_nhap - varchar(20)
+          'user2' , -- Mat_khau - varchar(20)
+          N'Hưng Hà Thái Bình' , -- Dia_chi - nvarchar(50)
+          123 , -- So_dien_thoai - int
+          'nguyendung1894' , -- Gmail - varchar(20)
+          '1998-04-01' , -- Ngay_sinh - date
+          2  -- Quyen_truy_cap - int
+        )

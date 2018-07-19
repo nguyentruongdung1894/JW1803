@@ -13,24 +13,23 @@ import java.sql.Date;
  */
 public class Product {
     private int productId;
-    private String categoryId;
+    private int categoryId;
     private String productName;
     private String productImage;
-    private String imageId;
+    private int imageId;
     private int quantity;
     private String description;
     private float price;
-    private String saleId;
+    private int saleId;
     private int view;
-    private String supplier;
+    private int supplier;
     private Date date;
-    private int sex;
     private boolean status;
 
     public Product() {
     }
 
-    public Product(int productId, String categoryId, String productName, String productImage, String imageId, int quantity, String description, float price, String saleId, int view, String supplier, Date date, int sex, boolean status) {
+    public Product(int productId, int categoryId, String productName, String productImage, int imageId, int quantity, String description, float price, int saleId, int view, int supplier, Date date, boolean status) {
         this.productId = productId;
         this.categoryId = categoryId;
         this.productName = productName;
@@ -43,7 +42,6 @@ public class Product {
         this.view = view;
         this.supplier = supplier;
         this.date = date;
-        this.sex = sex;
         this.status = status;
     }
 
@@ -55,11 +53,11 @@ public class Product {
         this.productId = productId;
     }
 
-    public String getCategoryId() {
+    public int getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(String categoryId) {
+    public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
     }
 
@@ -79,11 +77,11 @@ public class Product {
         this.productImage = productImage;
     }
 
-    public String getImageId() {
+    public int getImageId() {
         return imageId;
     }
 
-    public void setImageId(String imageId) {
+    public void setImageId(int imageId) {
         this.imageId = imageId;
     }
 
@@ -111,11 +109,11 @@ public class Product {
         this.price = price;
     }
 
-    public String getSaleId() {
+    public int getSaleId() {
         return saleId;
     }
 
-    public void setSaleId(String saleId) {
+    public void setSaleId(int saleId) {
         this.saleId = saleId;
     }
 
@@ -127,11 +125,11 @@ public class Product {
         this.view = view;
     }
 
-    public String getSupplier() {
+    public int getSupplier() {
         return supplier;
     }
 
-    public void setSupplier(String supplier) {
+    public void setSupplier(int supplier) {
         this.supplier = supplier;
     }
 
@@ -143,14 +141,6 @@ public class Product {
         this.date = date;
     }
 
-    public int getSex() {
-        return sex;
-    }
-
-    public void setSex(int sex) {
-        this.sex = sex;
-    }
-
     public boolean isStatus() {
         return status;
     }
@@ -158,6 +148,6 @@ public class Product {
     public void setStatus(boolean status) {
         this.status = status;
     }
-    
+
     
 }
