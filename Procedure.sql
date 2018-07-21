@@ -101,3 +101,100 @@ AS
 BEGIN
 	SELECT * FROM dbo.Khach_hang kh WHERE kh.Quyen_truy_cap=2
 END
+
+
+CREATE PROCEDURE [dbo].[SP_DisplayPageNo]
+	@CurrentPage int ,
+	@PageSize int,
+	@table nvarchar(200),
+	@actionName nvarchar(100),
+	@sql nvarchar(4000) OUTPUT
+AS
+BEGIN
+	--Khai báo và lấy tổng số bản ghi lấy về
+	DECLARE @TotalRecord int;
+	DECLARE @sqlString nvarchar(200);
+	SET @sqlString = N'SELECT @TotalRecord=Count(*) FROM '+@table;
+	EXECUTE sp_executesql @sqlString,N'@TotalRecord int out',@TotalRecord out;
+
+	--Khai báo và set tổng số trang cần phân ra dựa vào tổng số bản ghi và số bản ghi trên 1 trang
+	DECLARE @TotalPage int;
+	IF @TotalRecord%@PageSize>0
+		SET @TotalPage=(@TotalRecord/@PageSize)+1;
+	ELSE
+		SET @TotalPage=@TotalRecord/@PageSize;
+
+	--Xử lý trường hợp nếu trang đang chọn truyền vào nhỏ hơn 1
+	IF @CurrentPage<1
+		SET @CurrentPage=1;
+
+	--Xử lý trường hợp nếu trang đang chọn truyền vào lớn hơn tổng số trang được chia
+	IF @CurrentPage>@TotalPage
+		SET @CurrentPage=@TotalPage
+
+	--Set nội dung cho link phân trang
+	SET @sql='Trang: '
+		IF @CurrentPage>1
+		BEGIN
+			SET @sql=@sql+ N' <a href="'+@actionName+'?page=1" title="Trang đầu">&lt;&lt;</a>'
+			SET @sql=@sql+ ' <a href="'+@actionName+'?page='+ Cast((@CurrentPage-1) AS
+			NVARCHAR(4))+N'" title="Trang trước">&lt;</a>'
+		END
+	DECLARE @i int
+	SET @i=1
+	WHILE @i<=@TotalPage
+	BEGIN
+		IF @i=@CurrentPage
+			SET @sql=@sql+'['+Cast(Cast(@i AS int) AS nvarchar(4))+'] '
+		ELSE
+			SET @sql=@sql+' <a href="'+@actionName+'?page='+Cast(@i AS nvarchar(4))+'">'+Cast(@i AS nvarchar(4))+'</a> '
+		SET @i=@i+1
+	END
+
+	IF @CurrentPage<@TotalPage
+	BEGIN
+		SET @sql=@sql+ N' <a href="'+@actionName+'?page='+Cast((@CurrentPage+1) AS
+		NVARCHAR(4))+N'" title="Trang sau">&gt;</a>'
+		SET @sql=@sql+ N' <a href="'+@actionName+'?page='+cast(@TotalPage AS nvarchar(6))+ N'"title="Trang cuối">&gt;&gt;</a>'
+	END
+	SELECT @sql AS Paging
+END
+
+
+CREATE PROCEDURE [dbo].[SP_Paging]
+	@CurrentPage int,
+	@PageSize int,
+	@table nvarchar(200),
+	@tableId nvarchar(100)
+AS
+Begin
+	-- Tính tổng số bản ghi
+	DECLARE @TotalRecord int, @TotalPage INT
+    
+	--khai bao cau lenh va thuc thi cau lenh lay tong so ban ghi cua bang can phan trang
+	DECLARE @SqlString nvarchar(500);
+	DECLARE @SqlString1 nvarchar(500);
+		SET @SqlString = N'SELECT @TotalRecord=Count(*) FROM '+@table;
+		EXECUTE sp_executesql @SqlString,N'@TotalRecord int out',@TotalRecord out;
+
+	-- Tính tổng số trang
+	IF @TotalRecord%@PageSize>0
+		SET @TotalPage=(@TotalRecord/@PageSize)+1
+	ELSE
+		SET @TotalPage=@TotalRecord/@PageSize
+
+	--Xử lý trường hợp @CurrentPage<1
+	IF @CurrentPage<1
+	SET @CurrentPage=1
+
+	--Xử lý trường hợp @CurrentPage>@Tolal
+	IF @CurrentPage>@TotalPage
+		SET @CurrentPage=@TotalPage
+
+	--Xử lý lấy dữ liệu của trang hiện tại
+		SET @SqlString1 = 'Begin WITH temp AS (SELECT ROW_NUMBER() OVER(ORDER BY
+		'+@tableId+') AS RowNum, * FROM '+@table+') Select * From temp Where RowNum Between
+		('+CAST(@CurrentPage AS nvarchar(10))+' - 1)*'+CAST(@PageSize AS nvarchar(10))+'+1 AND
+		'+CAST(@CurrentPage AS nvarchar(10))+'*'+CAST(@PageSize AS nvarchar(10))+' END;'
+		 execute sp_executesql @SqlString1;
+END

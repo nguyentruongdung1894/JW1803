@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta charset="utf-8" />
-        <title>Ace Admin</title>
+        <title>Product - admin</title>
 
         <meta name="description" content="Dynamic tables and grids using jqGrid plugin" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -31,20 +31,44 @@
         <!-- ace styles -->
         <link rel="stylesheet" href="../jsp/assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
         <style>
-            .pagination a {
-                color: black;
+            form.example input[type=text] {
+                padding: 5px;
+                font-size: 15px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
                 float: left;
-                padding: 8px 16px;
-                text-decoration: none;
-                transition: background-color .3s;
+                width: 10%;
+                background: #f1f1f1;
+                margin-bottom: 10px;
+                -webkit-transition: width 0.4s ease-in-out;
+                transition: width 0.4s ease-in-out;
             }
-
-            .pagination a.active {
-                background-color: dodgerblue;
+            form.example input[type=text]:focus {
+                width: 50%;
+            }
+            form.example button {
+                float: left;
+                width: 40px;
+                padding: 5px;
+                background: #2196F3;
                 color: white;
+                font-size: 15px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                border-left: none;
+                cursor: pointer;
+                margin-bottom: 10px;
             }
 
-            .pagination a:hover:not(.active) {background-color: #ddd;}
+            form.example button:hover {
+                background: #0b7dda;
+            }
+
+            form.example::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
         </style>
     </head>
 
@@ -80,7 +104,7 @@
                             <li>
                                 <a href="">Tables</a>
                             </li>
-                            <li class="active">jqGrid plugin</li>
+                            <li class="active">Product - admin</li>
                         </ul><!-- /.breadcrumb -->
 
                         <div class="nav-search" id="nav-search">
@@ -163,10 +187,10 @@
 
                         <div class="page-header">
                             <h1>
-                                jqGrid
+                                Product
                                 <small>
                                     <i class="ace-icon fa fa-angle-double-right"></i>
-                                    Dynamic tables and grids using jqGrid plugin
+                                    Dynamic tables and grids using Product plugin
                                 </small>
                             </h1>
                         </div><!-- /.page-header -->
@@ -174,64 +198,98 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <!-- PAGE CONTENT BEGINS -->
-                                <div class="alert alert-info">
-                                    <button class="close" data-dismiss="alert">
-                                        <i class="ace-icon fa fa-times"></i>
-                                    </button>
 
-                                    <i class="ace-icon fa fa-hand-o-right"></i>
-                                    Please note that demo server is not configured to save the changes, therefore you may see an error message.
+
+                                <form class="example" action="">
+                                    <input type="text" placeholder="Search.." name="search">
+                                    <button type="submit"><i class="fa fa-search"></i></button>
+                                </form>
+                                <div class="">
+<!--                                    <div class="dropdown">
+                                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Filters
+                                            <span class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-header">Men's wear</li>
+                                                <c:forEach items="${listBannerMen}" var="M">
+                                                <li><a href="#">${M.tendanhmuccon}</a></li>
+                                                </c:forEach>
+                                            <li class="dropdown-header">Women's wear</li>
+                                                <c:forEach items="${listBannerWomen}" var="W">
+                                                <li><a href="#">${W.tendanhmuccon}</a></li>
+                                                </c:forEach>
+                                        </ul>
+                                    </div>-->
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Click Me...!
+                                            <span class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="productMen-admin.htm">Men's wear</a></li>
+                                            <li><a href="productWomen-admin.htm">Women's wear</a></li>
+                                            <li><a href="productBag-admin.htm">Bag</a></li>
+                                            <li><a href="productFootwear-admin.htm">Footwear</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
+
+
+
                                 <div class="">          
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr class="">
-                                                <th>Ma_san_pham</th>
-                                                <th>Ma_danh_muc_con</th>
+                                                <th>Id</th>
+                                                <th>References</th>
                                                 <th>Ten_san_pham</th>
-                                                <th>Hinh_anh</th>
-                                                <th>Ngay_Nhap</th>
-                                                <th>Ma_hinh_anh</th>
-                                                <th>So_luong</th>
-                                                <th>Mo_ta</th>
-                                                <th>Don_gia</th>
-                                                <th>Ma_Giam_Gia</th>
-                                                <th>Luot_xem</th>
-                                                <th>Ma_nha_cung_cap</th>
-                                                <th>Trang_Thai</th>
+                                                <th>Image</th>
+                                                <th>Input Date</th>
+                                                <th>Image-Id</th>
+                                                <th>Quantity</th>
+                                                <th>Description</th>
+                                                <th>Price</th>
+                                                <th>Sale-Id</th>
+                                                <th>View</th>
+                                                <th>Supplier</th>
+                                                <th>Status</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody id="id01">
-                                            <c:forEach items="${listFadmin}" var="F">
+                                            <c:forEach items="${listFadmin}" var="P">
                                                 <tr>
-                                                    <td>${F.productId}</td>
-                                                    <td>${F.categoryId}</td>
-                                                    <td>${F.productName}</td>
-                                                    <td>${F.productImage}</td>
-                                                    <td>${F.date}</td>
-                                                    <td>${F.imageId}</td>
-                                                    <td>${F.quantity}</td>
-                                                    <td>${F.description}</td>
-                                                    <td>${F.price}</td>
-                                                    <td>${F.saleId}</td>
-                                                    <td>${F.view}</td>
-                                                    <td>${F.supplier}</td>                                                    
-                                                    <td>${F.status}</td>
+                                                    <td>${P.productId}</td>
+                                                    <td>${P.categoryId}</td>
+                                                    <td>${P.productName}</td>
+                                                    <td>${P.productImage}</td>
+                                                    <td>${P.date}</td>
+                                                    <td>${P.imageId}</td>
+                                                    <td>${P.quantity}</td>
+                                                    <td>${P.description}</td>
+                                                    <td>${P.price}</td>
+                                                    <td>${P.saleId}</td>
+                                                    <td>${P.view}</td>
+                                                    <td>${P.supplier}</td>                                                    
+                                                    <td>${P.status}</td>
+                                                    <td>
+                                                        <div class="hidden-sm hidden-xs action-buttons">
+                                                            <a class="blue" href="#">
+                                                                <i class="ace-icon fa fa-search-plus bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="green" href="#">
+                                                                <i class="ace-icon fa fa-pencil bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="red" href="#">
+                                                                <i class="ace-icon fa fa-trash-o bigger-130"></i>
+                                                            </a>
+                                                        </div>
+                                                    </td>
                                                 </tr> 
                                             </c:forEach>
                                         </tbody>
                                     </table>
                                 </div>    
-                                <div class="pagination">
-                                    <a href="#">&laquo;</a>
-                                    <a class="active" href="#">1</a>
-                                    <a href="#">2</a>
-                                    <a href="#">3</a>
-                                    <a href="#">4</a>
-                                    <a href="#">5</a>
-                                    <a href="#">6</a>
-                                    <a href="#">&raquo;</a>
-                                </div>
+<!--                                <a href="">${url}</a>-->
                                 <!-- PAGE CONTENT ENDS -->
                             </div><!-- /.col -->
                         </div><!-- /.row -->
@@ -249,7 +307,7 @@
         <script src="../jsp/assets/js/jquery.2.1.1.min.js"></script>
 
         <script type="text/javascript">
-                                    window.jQuery || document.write("<script src='../jsp/assets/js/jquery.min.js'>" + "<" + "/script>");
+                            window.jQuery || document.write("<script src='../jsp/assets/js/jquery.min.js'>" + "<" + "/script>");
         </script>
 
         <script type="text/javascript">
@@ -267,6 +325,6 @@
         <script src="../jsp/assets/js/ace-elements.min.js"></script>
         <script src="../jsp/assets/js/ace.min.js"></script>
 
-        
+
     </body>
 </html>

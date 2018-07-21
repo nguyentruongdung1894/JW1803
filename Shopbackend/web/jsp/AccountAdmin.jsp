@@ -30,7 +30,7 @@
 
         <!-- ace styles -->
         <link rel="stylesheet" href="../jsp/assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
-        <style>
+        <style> 
             .pagination a {
                 color: black;
                 float: left;
@@ -45,6 +45,44 @@
             }
 
             .pagination a:hover:not(.active) {background-color: #ddd;}
+            form.example input[type=text] {
+                padding: 5px;
+                font-size: 15px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                float: left;
+                width: 10%;
+                background: #f1f1f1;
+                margin-bottom: 10px;
+                -webkit-transition: width 0.4s ease-in-out;
+                transition: width 0.4s ease-in-out;
+            }
+            form.example input[type=text]:focus {
+                width: 50%;
+            }
+            form.example button {
+                float: left;
+                width: 40px;
+                padding: 5px;
+                background: #2196F3;
+                color: white;
+                font-size: 15px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                border-left: none;
+                cursor: pointer;
+                margin-bottom: 10px;
+            }
+
+            form.example button:hover {
+                background: #0b7dda;
+            }
+
+            form.example::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
         </style>
     </head>
 
@@ -182,6 +220,13 @@
                                     <i class="ace-icon fa fa-hand-o-right"></i>
                                     Please note that demo server is not configured to save the changes, therefore you may see an error message.
                                 </div>
+
+                                <form class="example" action="">
+                                    <input type="text" placeholder="Search.." name="search">
+                                    <button type="submit"><i class="fa fa-search"></i></button>
+                                </form>
+
+
                                 <div class="">          
                                     <table class="table table-bordered">
                                         <thead>
@@ -195,6 +240,7 @@
                                                 <th>email</th>
                                                 <th>birthday</th>
                                                 <th>role</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody id="id01">
@@ -209,12 +255,26 @@
                                                     <td>${admin.email}</td>
                                                     <td>${admin.birthday}</td>
                                                     <td>${admin.role}</td>
-                                                </tr> 
+                                                    <td>
+                                                        <div class="hidden-sm hidden-xs action-buttons">
+                                                            <a class="blue" href="#">
+                                                                <i class="ace-icon fa fa-search-plus bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="green" href="#">
+                                                                <i class="ace-icon fa fa-pencil bigger-130"></i>
+                                                            </a>
+
+                                                            <a class="red" href="#">
+                                                                <i class="ace-icon fa fa-trash-o bigger-130"></i>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                </tr>                                               
                                             </c:forEach>
                                         </tbody>
                                     </table>
                                 </div>    
-                                <button onclick="sortList()">Sort</button>
                                 <div class="pagination">
                                     <a href="#">&laquo;</a>
                                     <a class="active" href="#">1</a>
@@ -242,7 +302,7 @@
         <script src="../jsp/assets/js/jquery.2.1.1.min.js"></script>
 
         <script type="text/javascript">
-                                    window.jQuery || document.write("<script src='../jsp/assets/js/jquery.min.js'>" + "<" + "/script>");
+                            window.jQuery || document.write("<script src='../jsp/assets/js/jquery.min.js'>" + "<" + "/script>");
         </script>
 
         <script type="text/javascript">
@@ -260,39 +320,5 @@
         <script src="../jsp/assets/js/ace-elements.min.js"></script>
         <script src="../jsp/assets/js/ace.min.js"></script>
 
-        <script>
-            function sortList() {
-                var list, i, switching, b, shouldSwitch;
-                list = document.getElementById("id01");
-                switching = true;
-                /*Make a loop that will continue until
-                 no switching has been done:*/
-                while (switching) {
-                    //start by saying: no switching is done:
-                    switching = false;
-                    b = list.document.getElementsByClassName("sort");
-                    //Loop through all list-items:
-                    for (i = 0; i < (b.length - 1); i++) {
-                        //start by saying there should be no switching:
-                        shouldSwitch = false;
-                        /*check if the next item should
-                         switch place with the current item:*/
-                        if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
-                            /*if next item is alphabetically
-                             lower than current item, mark as a switch
-                             and break the loop:*/
-                            shouldSwitch = true;
-                            break;
-                        }
-                    }
-                    if (shouldSwitch) {
-                        /*If a switch has been marked, make the switch
-                         and mark the switch as done:*/
-                        b[i].parentNode.insertBefore(b[i + 1], b[i]);
-                        switching = true;
-                    }
-                }
-            }
-        </script>
     </body>
 </html>

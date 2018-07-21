@@ -6,12 +6,15 @@
 package bkap.Model;
 
 import bkap.Connection.D_Connection;
+import bkap.Connection.Pagination;
+import bkap.Entity.D_banner;
 import bkap.Entity.ProductAdmin;
 import bkap.Entity.UserAdmin;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -209,4 +212,113 @@ public class D_Model {
         }
         return listFootwear;
     }
+
+    public HashMap getDataPagination(int page, int pageSize) {
+        HashMap map = Pagination.getDataForPagination(page, pageSize, "SanPham", "Ma_san_pham",
+                "getDataPagging.htm");
+        return map;
+    }
+    
+    //    Banner
+    public List<D_banner> getBannerMen(){
+        Connection conn=null;
+        CallableStatement call=null;
+        List<D_banner> listBannerMen=new ArrayList<>();
+        try {
+            conn=D_Connection.openDataBase();
+            call=conn.prepareCall("{call GetBannerParentMen()}");
+            ResultSet rs=call.executeQuery();
+            while(rs.next()){
+                D_banner banner=new D_banner();
+                banner.setMadanhmuccha(rs.getInt("Ma_danh_muc_cha"));
+                banner.setTendanhmuccha(rs.getString("Ten_danh_muc_cha"));
+                banner.setMadanhmuccon(rs.getInt("Ma_danh_muc_con"));
+                banner.setTendanhmuccon(rs.getString("Ten_danh_muc_con"));
+                banner.setDouutien(rs.getInt("Do_uu_tien"));
+                banner.setTrangthai(rs.getBoolean("Trang_thai"));
+                listBannerMen.add(banner);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            D_Connection.closeDataBase(conn, call);
+        }
+        return listBannerMen;
+    }
+    public List<D_banner> getBannerWomen(){
+        Connection conn=null;
+        CallableStatement call=null;
+        List<D_banner> listBannerWomen=new ArrayList<>();
+        try {
+            conn=D_Connection.openDataBase();
+            call=conn.prepareCall("{call GetBannerParentWomen()}");
+            ResultSet rs=call.executeQuery();
+            while(rs.next()){
+                D_banner banner=new D_banner();
+                banner.setMadanhmuccha(rs.getInt("Ma_danh_muc_cha"));
+                banner.setTendanhmuccha(rs.getString("Ten_danh_muc_cha"));
+                banner.setMadanhmuccon(rs.getInt("Ma_danh_muc_con"));
+                banner.setTendanhmuccon(rs.getString("Ten_danh_muc_con"));
+                banner.setDouutien(rs.getInt("Do_uu_tien"));
+                banner.setTrangthai(rs.getBoolean("Trang_thai"));
+                listBannerWomen.add(banner);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            D_Connection.closeDataBase(conn, call);
+        }
+        return listBannerWomen;
+    }
+    
+    public List<ProductAdmin> getProductMenById(int productMenById){
+        Connection conn=null;
+        CallableStatement call=null;
+        List<ProductAdmin> ProductMenById=new ArrayList<>();
+        try {
+            conn=D_Connection.openDataBase();
+            call=conn.prepareCall("{call getProductMenById(?)}");
+            call.setInt(1,productMenById);
+            ResultSet rs=call.executeQuery();
+            while(rs.next()){
+                ProductAdmin pro=new ProductAdmin();
+                pro.setProductId(rs.getInt("Ma_san_pham"));
+                pro.setProductImage(rs.getString("Hinh_anh"));
+                pro.setProductName(rs.getString("Ten_san_pham"));
+                pro.setPrice(rs.getFloat("Don_gia"));               
+                ProductMenById.add(pro);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            D_Connection.closeDataBase(conn, call);
+        }
+        return ProductMenById;
+    }
+    
+    public List<ProductAdmin> getProductWomenById(int productWomenById){
+        Connection conn=null;
+        CallableStatement call=null;
+        List<ProductAdmin> ProductWomenById=new ArrayList<>();
+        try {
+            conn=D_Connection.openDataBase();
+            call=conn.prepareCall("{call getProductWomenById(?)}");
+            call.setInt(1,productWomenById);
+            ResultSet rs=call.executeQuery();
+            while(rs.next()){
+                ProductAdmin pro=new ProductAdmin();
+                pro.setProductId(rs.getInt("Ma_san_pham"));
+                pro.setProductImage(rs.getString("Hinh_anh"));
+                pro.setProductName(rs.getString("Ten_san_pham"));
+                pro.setPrice(rs.getFloat("Don_gia"));               
+                ProductWomenById.add(pro);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            D_Connection.closeDataBase(conn, call);
+        }
+        return ProductWomenById;
+    }
+//    Banner
 }

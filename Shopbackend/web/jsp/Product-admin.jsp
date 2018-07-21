@@ -205,20 +205,6 @@
                                     <button type="submit"><i class="fa fa-search"></i></button>
                                 </form>
                                 <div class="">
-<!--                                    <div class="dropdown">
-                                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Filters
-                                            <span class="caret"></span></button>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-header">Men's wear</li>
-                                                <c:forEach items="${listBannerMen}" var="M">
-                                                <li><a href="#">${M.tendanhmuccon}</a></li>
-                                                </c:forEach>
-                                            <li class="dropdown-header">Women's wear</li>
-                                                <c:forEach items="${listBannerWomen}" var="W">
-                                                <li><a href="#">${W.tendanhmuccon}</a></li>
-                                                </c:forEach>
-                                        </ul>
-                                    </div>-->
                                     <div class="dropdown">
                                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Click Me...!
                                             <span class="caret"></span></button>
@@ -254,7 +240,7 @@
                                             </tr>
                                         </thead>
                                         <tbody id="id01">
-                                            <c:forEach items="${listBadmin}" var="P">
+                                            <c:forEach items="${listProduct}" var="P">
                                                 <tr>
                                                     <td>${P.productId}</td>
                                                     <td>${P.categoryId}</td>
@@ -289,7 +275,7 @@
                                         </tbody>
                                     </table>
                                 </div>    
-<!--                                <a href="">${url}</a>-->
+                                <a href="">${url}</a>
                                 <!-- PAGE CONTENT ENDS -->
                             </div><!-- /.col -->
                         </div><!-- /.row -->
