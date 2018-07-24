@@ -18,8 +18,7 @@ BEGIN
 	WHERE  tblDemo.RowIndex BETWEEN @FromIndex AND @ToIndex
 END
 
-
-
+--lấy sản phẩm nam
 ALTER PROC getProductMen
 AS
 BEGIN
@@ -28,6 +27,7 @@ BEGIN
 	WHERE dm.Ma_danh_muc_cha=1 AND sp.Trang_Thai=1 ORDER BY sp.Ngay_Nhap DESC
 END
 
+--Lấy sản phẩm nữ
 ALTER PROC getProductWomen
 AS
 BEGIN
@@ -36,6 +36,7 @@ BEGIN
 		WHERE dm.Ma_danh_muc_cha=2 AND sp.Trang_Thai=1 ORDER BY sp.Ngay_Nhap DESC
 END
 
+--Lấy cặp
 ALTER PROC getProductBag
 AS
 BEGIN
@@ -44,6 +45,7 @@ BEGIN
 		WHERE dm.Ma_danh_muc_cha=3 AND sp.Trang_Thai=1 ORDER BY sp.Ngay_Nhap DESC
 END
 
+--Lấy Giầy
 ALTER PROC getProductFootwear
 AS
 BEGIN
@@ -52,6 +54,7 @@ BEGIN
 		WHERE dm.Ma_danh_muc_cha=4 AND sp.Trang_Thai=1 ORDER BY sp.Ngay_Nhap DESC
 END
 
+--Lấy tên danh mục con của nam
 CREATE PROC GetBannerParentMen
 AS
 BEGIN
@@ -60,12 +63,22 @@ BEGIN
 	WHERE dmc.Trang_thai=1 AND dm.Ma_danh_muc_cha=1 ORDER BY dmc.Do_uu_tien ASC
 END
 
+--Lấy tên danh mục con của nữ
 CREATE PROC GetBannerParentWomen
 AS
 BEGIN
 	SELECT *
 	FROM dbo.Danhmuccha dm INNER JOIN dbo.Danhmuccon dmc ON dmc.Ma_danh_muc_cha = dm.Ma_danh_muc_cha	
 	WHERE dmc.Trang_thai=1 AND dm.Ma_danh_muc_cha=2 ORDER BY dmc.Do_uu_tien ASC
+END
+
+--lấy sản phẩm theo id
+--Test: Exec getProductById 2
+CREATE PROC getProductById
+@Id INT
+AS
+BEGIN
+	SELECT * FROM dbo.SanPham sp WHERE sp.Ma_san_pham=@Id AND sp.Trang_Thai=1
 END
 
 --Test: Exec getProductMenById 1
@@ -90,18 +103,81 @@ BEGIN
 	WHERE dm.Ma_danh_muc_cha=2 AND sp.Ma_danh_muc_con=@Id AND sp.Trang_Thai=1 
 END
 
+--Lấy danh sách admin
 CREATE PROC getAdmin
 AS
 BEGIN
 	SELECT * FROM dbo.Khach_hang kh WHERE kh.Quyen_truy_cap=1
 END
 
+--Lấy danh sách user
 CREATE PROC getUser
 AS
 BEGIN
 	SELECT * FROM dbo.Khach_hang kh WHERE kh.Quyen_truy_cap=2
 END
 
+--Xóa sản phẩm
+CREATE procedure DeleteProduct
+@productId varchar(50)
+AS
+BEGIN
+	DELETE dbo.SanPham
+	WHERE Ma_san_pham=@productId
+END
+
+--Tạo sản phẩm mới
+Create procedure InsertProdcut
+@madmc int,
+@nameProduct NVARCHAR(50),
+@image VARCHAR(100),
+@inputdate DATE,
+@imageid INT,
+@quantity INT,
+@mota TEXT,
+@price FLOAT,
+@saleid INT,
+@view INT,
+@suppliersid INT,
+@trangthai BIT
+as
+BEGIN
+	insert into Product
+	values(@madmc ,@nameProduct ,@image ,@inputdate ,@imageid ,@quantity ,@mota ,@price ,@saleid ,@view ,@suppliersid ,@trangthai );
+END
+
+--Sửa sản phẩm
+CREATE PROC UpdateProduct
+@productId varchar(50),
+@madmc int,
+@nameProduct NVARCHAR(50),
+@image VARCHAR(100),
+@inputdate DATE,
+@imageid INT,
+@quantity INT,
+@mota TEXT,
+@price FLOAT,
+@saleid INT,
+@view INT,
+@suppliersid INT,
+@trangthai BIT
+AS
+BEGIN
+	UPDATE dbo.SanPham
+	SET Ma_danh_muc_con=@madmc,
+		Ten_san_pham =@nameProduct,
+	Hinh_anh=@image,
+	Ngay_Nhap=@inputdate,
+	Ma_hinh_anh =@imageid,
+	So_luong=@quantity,
+	Mo_ta=@mota,
+	Don_gia =@price,
+	Ma_Giam_Gia=@saleid,
+	Luot_xem=@view,
+	Ma_nha_cung_cap=@suppliersid,
+	Trang_Thai=@trangthai
+	WHERE Ma_san_pham=@productId
+END
 
 CREATE PROCEDURE [dbo].[SP_DisplayPageNo]
 	@CurrentPage int ,

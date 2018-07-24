@@ -218,18 +218,18 @@ public class D_Model {
                 "getDataPagging.htm");
         return map;
     }
-    
+
     //    Banner
-    public List<D_banner> getBannerMen(){
-        Connection conn=null;
-        CallableStatement call=null;
-        List<D_banner> listBannerMen=new ArrayList<>();
+    public List<D_banner> getBannerMen() {
+        Connection conn = null;
+        CallableStatement call = null;
+        List<D_banner> listBannerMen = new ArrayList<>();
         try {
-            conn=D_Connection.openDataBase();
-            call=conn.prepareCall("{call GetBannerParentMen()}");
-            ResultSet rs=call.executeQuery();
-            while(rs.next()){
-                D_banner banner=new D_banner();
+            conn = D_Connection.openDataBase();
+            call = conn.prepareCall("{call GetBannerParentMen()}");
+            ResultSet rs = call.executeQuery();
+            while (rs.next()) {
+                D_banner banner = new D_banner();
                 banner.setMadanhmuccha(rs.getInt("Ma_danh_muc_cha"));
                 banner.setTendanhmuccha(rs.getString("Ten_danh_muc_cha"));
                 banner.setMadanhmuccon(rs.getInt("Ma_danh_muc_con"));
@@ -240,21 +240,22 @@ public class D_Model {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
+        } finally {
             D_Connection.closeDataBase(conn, call);
         }
         return listBannerMen;
     }
-    public List<D_banner> getBannerWomen(){
-        Connection conn=null;
-        CallableStatement call=null;
-        List<D_banner> listBannerWomen=new ArrayList<>();
+
+    public List<D_banner> getBannerWomen() {
+        Connection conn = null;
+        CallableStatement call = null;
+        List<D_banner> listBannerWomen = new ArrayList<>();
         try {
-            conn=D_Connection.openDataBase();
-            call=conn.prepareCall("{call GetBannerParentWomen()}");
-            ResultSet rs=call.executeQuery();
-            while(rs.next()){
-                D_banner banner=new D_banner();
+            conn = D_Connection.openDataBase();
+            call = conn.prepareCall("{call GetBannerParentWomen()}");
+            ResultSet rs = call.executeQuery();
+            while (rs.next()) {
+                D_banner banner = new D_banner();
                 banner.setMadanhmuccha(rs.getInt("Ma_danh_muc_cha"));
                 banner.setTendanhmuccha(rs.getString("Ten_danh_muc_cha"));
                 banner.setMadanhmuccon(rs.getInt("Ma_danh_muc_con"));
@@ -265,60 +266,184 @@ public class D_Model {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
+        } finally {
             D_Connection.closeDataBase(conn, call);
         }
         return listBannerWomen;
     }
     
-    public List<ProductAdmin> getProductMenById(int productMenById){
+    public ProductAdmin getProductById(int productId){
         Connection conn=null;
         CallableStatement call=null;
-        List<ProductAdmin> ProductMenById=new ArrayList<>();
+        ProductAdmin pro=new ProductAdmin();
         try {
             conn=D_Connection.openDataBase();
-            call=conn.prepareCall("{call getProductMenById(?)}");
-            call.setInt(1,productMenById);
+            call=conn.prepareCall("{call getProductById(?)}");
+            call.setInt(1, productId);
             ResultSet rs=call.executeQuery();
-            while(rs.next()){
-                ProductAdmin pro=new ProductAdmin();
+            if(rs.next()){
                 pro.setProductId(rs.getInt("Ma_san_pham"));
-                pro.setProductImage(rs.getString("Hinh_anh"));
+                pro.setCategoryId(rs.getInt("Ma_danh_muc_con"));
                 pro.setProductName(rs.getString("Ten_san_pham"));
-                pro.setPrice(rs.getFloat("Don_gia"));               
-                ProductMenById.add(pro);
+                pro.setProductImage(rs.getString("Hinh_anh"));
+                pro.setDate(rs.getDate("Ngay_Nhap"));
+                pro.setImageId(rs.getInt("Ma_hinh_anh"));
+                pro.setQuantity(rs.getInt("So_luong"));
+                pro.setDescription(rs.getString("Mo_ta"));
+                pro.setPrice(rs.getFloat("Don_gia"));
+                pro.setSaleId(rs.getInt("Ma_Giam_Gia"));
+                pro.setView(rs.getInt("Luot_xem"));
+                pro.setSupplier(rs.getInt("Ma_nha_cung_cap"));
+                pro.setStatus(rs.getBoolean("Trang_Thai"));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }finally{
             D_Connection.closeDataBase(conn, call);
         }
-        return ProductMenById;
+        return pro;
     }
     
-    public List<ProductAdmin> getProductWomenById(int productWomenById){
-        Connection conn=null;
-        CallableStatement call=null;
-        List<ProductAdmin> ProductWomenById=new ArrayList<>();
+    public List<ProductAdmin> getProductMenById(int productMenById) {
+        Connection conn = null;
+        CallableStatement call = null;
+        List<ProductAdmin> ProductMenById = new ArrayList<>();
         try {
-            conn=D_Connection.openDataBase();
-            call=conn.prepareCall("{call getProductWomenById(?)}");
-            call.setInt(1,productWomenById);
-            ResultSet rs=call.executeQuery();
-            while(rs.next()){
-                ProductAdmin pro=new ProductAdmin();
+            conn = D_Connection.openDataBase();
+            call = conn.prepareCall("{call getProductMenById(?)}");
+            call.setInt(1, productMenById);
+            ResultSet rs = call.executeQuery();
+            while (rs.next()) {
+                ProductAdmin pro = new ProductAdmin();
                 pro.setProductId(rs.getInt("Ma_san_pham"));
-                pro.setProductImage(rs.getString("Hinh_anh"));
+                pro.setCategoryId(rs.getInt("Ma_danh_muc_con"));
                 pro.setProductName(rs.getString("Ten_san_pham"));
-                pro.setPrice(rs.getFloat("Don_gia"));               
+                pro.setProductImage(rs.getString("Hinh_anh"));
+                pro.setDate(rs.getDate("Ngay_Nhap"));
+                pro.setImageId(rs.getInt("Ma_hinh_anh"));
+                pro.setQuantity(rs.getInt("So_luong"));
+                pro.setDescription(rs.getString("Mo_ta"));
+                pro.setPrice(rs.getFloat("Don_gia"));
+                pro.setSaleId(rs.getInt("Ma_Giam_Gia"));
+                pro.setView(rs.getInt("Luot_xem"));
+                pro.setSupplier(rs.getInt("Ma_nha_cung_cap"));
+                pro.setStatus(rs.getBoolean("Trang_Thai"));
+                ProductMenById.add(pro);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            D_Connection.closeDataBase(conn, call);
+        }
+        return ProductMenById;
+    }
+
+    public List<ProductAdmin> getProductWomenById(int productWomenById) {
+        Connection conn = null;
+        CallableStatement call = null;
+        List<ProductAdmin> ProductWomenById = new ArrayList<>();
+        try {
+            conn = D_Connection.openDataBase();
+            call = conn.prepareCall("{call getProductWomenById(?)}");
+            call.setInt(1, productWomenById);
+            ResultSet rs = call.executeQuery();
+            while (rs.next()) {
+                ProductAdmin pro = new ProductAdmin();
+                pro.setProductId(rs.getInt("Ma_san_pham"));
+                pro.setCategoryId(rs.getInt("Ma_danh_muc_con"));
+                pro.setProductName(rs.getString("Ten_san_pham"));
+                pro.setProductImage(rs.getString("Hinh_anh"));
+                pro.setDate(rs.getDate("Ngay_Nhap"));
+                pro.setImageId(rs.getInt("Ma_hinh_anh"));
+                pro.setQuantity(rs.getInt("So_luong"));
+                pro.setDescription(rs.getString("Mo_ta"));
+                pro.setPrice(rs.getFloat("Don_gia"));
+                pro.setSaleId(rs.getInt("Ma_Giam_Gia"));
+                pro.setView(rs.getInt("Luot_xem"));
+                pro.setSupplier(rs.getInt("Ma_nha_cung_cap"));
+                pro.setStatus(rs.getBoolean("Trang_Thai"));
                 ProductWomenById.add(pro);
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
+        } finally {
             D_Connection.closeDataBase(conn, call);
         }
         return ProductWomenById;
     }
 //    Banner
+
+    public boolean inserProduct(ProductAdmin pro) {
+        Connection conn = null;
+        CallableStatement call = null;
+        try {
+            conn = D_Connection.openDataBase();
+            call = conn.prepareCall("{call InsertProdcut(?,?,?,?,?,?,?,?,?,?,?,?)}");
+            call.setInt(1, pro.getCategoryId());
+            call.setString(2, pro.getProductName());
+            call.setString(3, pro.getProductImage());
+            call.setDate(4, pro.getDate());
+            call.setInt(5, pro.getImageId());        
+            call.setInt(6, pro.getQuantity());
+            call.setString(7, pro.getDescription());         
+            call.setFloat(8, pro.getPrice());       
+            call.setInt(9, pro.getSaleId());
+            call.setInt(10, pro.getView());
+            call.setInt(11, pro.getSupplier());
+            call.setBoolean(12, pro.isStatus());          
+            call.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            D_Connection.closeDataBase(conn, call);
+        }
+        return true;
+    }
+
+    public boolean UpdateProduct(ProductAdmin pro) {
+        Connection conn = null;
+        CallableStatement call = null;
+        try {
+            conn = D_Connection.openDataBase();
+            call = conn.prepareCall("{call UpdateProduct(?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+            call.setInt(1, pro.getProductId());
+            call.setInt(2, pro.getCategoryId());
+            call.setString(3, pro.getProductName());
+            call.setString(4, pro.getProductImage());
+            call.setDate(5, pro.getDate());
+            call.setInt(6, pro.getImageId());        
+            call.setInt(7, pro.getQuantity());
+            call.setString(8, pro.getDescription());         
+            call.setFloat(9, pro.getPrice());       
+            call.setInt(10, pro.getSaleId());
+            call.setInt(11, pro.getView());
+            call.setInt(12, pro.getSupplier());
+            call.setBoolean(13, pro.isStatus());   
+            call.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            D_Connection.closeDataBase(conn, call);
+        }
+        return true;
+    }
+
+    public boolean deleteProduct(String productId) {
+        Connection conn = null;
+        CallableStatement call = null;
+        try {
+            conn = D_Connection.openDataBase();
+            call = conn.prepareCall("{call DeleteProduct(?)}");
+            call.setString(1, productId);
+            call.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            D_Connection.closeDataBase(conn, call);
+        }
+        return true;
+    }
 }

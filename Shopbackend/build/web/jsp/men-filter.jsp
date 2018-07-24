@@ -249,7 +249,7 @@
                                             </tr>
                                         </thead>
                                         <tbody id="id01">
-                                            <c:forEach items="${listMadmin}" var="M">
+                                            <c:forEach items="${listProductM}" var="M">
                                                 <tr>
                                                     <td>${M.productId}</td>
                                                     <td>${M.categoryId}</td>

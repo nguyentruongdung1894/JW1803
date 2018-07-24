@@ -209,8 +209,8 @@
                                         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Lọc Sản Phẩm
                                             <span class="caret"></span></button>
                                         <ul class="dropdown-menu">
-                                            <c:forEach items="${listBannerMen}" var="M">
-                                                <li><a href="<%=request.getContextPath()%>/admin/mens-filter.htm?productMenById=${M.madanhmuccon}">${M.tendanhmuccon}</a></li>
+                                            <c:forEach items="${listBannerWomen}" var="W">
+                                                <li><a href="<%=request.getContextPath()%>/admin/womens-filter.htm?productWomenById=${W.madanhmuccon}">${W.tendanhmuccon}</a></li>
                                             </c:forEach>
                                         </ul>
                                     </div>
@@ -249,21 +249,21 @@
                                             </tr>
                                         </thead>
                                         <tbody id="id01">
-                                            <c:forEach items="${listMadmin}" var="M">
+                                            <c:forEach items="${listProductW}" var="W">
                                                 <tr>
-                                                    <td>${M.productId}</td>
-                                                    <td>${M.categoryId}</td>
-                                                    <td>${M.productName}</td>
-                                                    <td>${M.productImage}</td>
-                                                    <td>${M.date}</td>
-                                                    <td>${M.imageId}</td>
-                                                    <td>${M.quantity}</td>
-                                                    <td>${M.description}</td>
-                                                    <td>${M.price}</td>
-                                                    <td>${M.saleId}</td>
-                                                    <td>${M.view}</td>
-                                                    <td>${M.supplier}</td>                                                    
-                                                    <td>${M.status}</td>
+                                                    <td>${W.productId}</td>
+                                                    <td>${W.categoryId}</td>
+                                                    <td>${W.productName}</td>
+                                                    <td>${W.productImage}</td>
+                                                    <td>${W.date}</td>
+                                                    <td>${W.imageId}</td>
+                                                    <td>${W.quantity}</td>
+                                                    <td>${W.description}</td>
+                                                    <td>${W.price}</td>
+                                                    <td>${W.saleId}</td>
+                                                    <td>${W.view}</td>
+                                                    <td>${W.supplier}</td>                                                    
+                                                    <td>${W.status}</td>
                                                     <td>
                                                         <div class="hidden-sm hidden-xs action-buttons">
                                                             <a class="blue" href="#">

@@ -201,10 +201,10 @@
 
                         <div class="page-header">
                             <h1>
-                                jqGrid
+                                Admin
                                 <small>
                                     <i class="ace-icon fa fa-angle-double-right"></i>
-                                    Dynamic tables and grids using jqGrid plugin
+                                    Dynamic tables and grids using Admin plugin
                                 </small>
                             </h1>
                         </div><!-- /.page-header -->
@@ -212,15 +212,6 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <!-- PAGE CONTENT BEGINS -->
-                                <div class="alert alert-info">
-                                    <button class="close" data-dismiss="alert">
-                                        <i class="ace-icon fa fa-times"></i>
-                                    </button>
-
-                                    <i class="ace-icon fa fa-hand-o-right"></i>
-                                    Please note that demo server is not configured to save the changes, therefore you may see an error message.
-                                </div>
-
                                 <form class="example" action="">
                                     <input type="text" placeholder="Search.." name="search">
                                     <button type="submit"><i class="fa fa-search"></i></button>

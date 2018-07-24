@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -183,5 +184,78 @@ public class D_Controller {
         model.getModelMap().put("listProduct", listProduct);
         model.getModelMap().put("url", url);
         return model;
+    }
+    
+    @RequestMapping(value = "/mens-filter")
+    public ModelAndView getmens(int productMenById) {
+        ModelAndView model = new ModelAndView("men-filter");
+        List<D_banner> listBannerMen = d_model.getBannerMen();
+        List<D_banner> listBannerWomen = d_model.getBannerWomen();
+        List<ProductAdmin> listProductM=d_model.getProductMenById(productMenById);
+        model.addObject("listBannerMen", listBannerMen);
+        model.addObject("listBannerWomen", listBannerWomen);
+        model.addObject("listProductM", listProductM);
+        return model;
+    }
+
+    @RequestMapping(value = "/womens-filter")
+    public ModelAndView getwomens(int productWomenById) {
+        ModelAndView model = new ModelAndView("women-filter");
+        List<D_banner> listBannerMen = d_model.getBannerMen();
+        List<D_banner> listBannerWomen = d_model.getBannerWomen();
+        List<ProductAdmin> listProductW=d_model.getProductWomenById(productWomenById);
+        model.addObject("listBannerMen", listBannerMen);
+        model.addObject("listBannerWomen", listBannerWomen);
+        model.addObject("listProductW", listProductW);
+        return model;
+    }
+    
+    @RequestMapping(value = "/delete-product")
+    public String delete(String productId){
+        boolean check=d_model.deleteProduct(productId);
+        if(check){          
+            return "redirect:getData.htm";
+        }
+        else{
+            return "error";
+        }
+    }
+    
+    @RequestMapping(value = "/iUpdate")
+    public ModelAndView iUpdate(int productId){
+        ModelAndView model=new ModelAndView("updateProduct-admin");
+        ProductAdmin pro=d_model.getProductById(productId);
+        model.getModelMap().addAttribute("pro", pro);
+        return model;
+    }
+    
+    @RequestMapping(value = "/update")
+    public String update(ProductAdmin pro){
+        boolean check=d_model.UpdateProduct(pro);
+        if(check){          
+            return "redirect:getAll.htm";
+        }
+        else{
+            return "error";
+        }
+    }
+    
+    @RequestMapping(value = "/iInsert")
+    public ModelAndView iIsert(){
+        ModelAndView model=new ModelAndView("insertProduct-admin");
+        ProductAdmin pro=new ProductAdmin();
+        model.getModelMap().addAttribute("pro", pro);
+        return model;
+    }
+    
+    @RequestMapping(value = "/insert", method = RequestMethod.POST)
+    public String Isert(ProductAdmin pro){
+        boolean check=d_model.inserProduct(pro);
+        if(check){          
+            return "redirect:getAll.htm";
+        }
+        else{
+            return "error";
+        }
     }
 }
