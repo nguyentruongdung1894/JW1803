@@ -16,26 +16,56 @@
     </head>
     <body>
         <f:form action="insert.htm" modelAttribute="pro" method="POST">
-        <table>
-            <tr>
-                <td>ProductId</td>
-                <td><f:input path="ProductId"/></td>
-            </tr>
-            <tr>
-                    <td>Product Name</td>
-                    <td><f:input path="ProductName"/></td>
+            <table>
+             
+                <tr>
+                    <td>categoryId</td>
+                    <td><f:input path="categoryId"/></td>
                 </tr>
                 <tr>
-                    <td>Price</td>
-                    <td><f:input path="Price"/></td>
+                    <td>productName</td>
+                    <td><f:input path="productName"/></td>
                 </tr>
                 <tr>
-                    <td>Description</td>
-                    <td><f:input path="ProductImage"/></td>
+                    <td>productImage</td>
+                    <td><f:input path="productImage"/></td>
                 </tr>
+                <tr>
+                    <td>date</td>
+                    <td><f:input path="date"/></td>
+                </tr>
+                <tr>
+                    <td>imageId</td>
+                    <td><f:input path="imageId"/></td>
+                </tr>
+                <tr>
+                    <td>quantity</td>
+                    <td><f:input path="quantity"/></td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td><f:input path="description"/></td>
+                </tr>
+                <tr>
+                    <td>price</td>
+                    <td><f:input path="price"/></td>
+                </tr>
+                <tr>
+                    <td>saleId</td>
+                    <td><f:input path="saleId"/></td>
+                </tr>
+                <tr>
+                    <td>view</td>
+                    <td><f:input path="view"/></td>
+                </tr>
+                <tr>
+                    <td>supplier</td>
+                    <td><f:input path="supplier"/></td>
+                </tr>
+                
                 <tr>
                     <td>Status</td>
-                    <td><f:select path="ProductStatus">
+                    <td><f:select path="status">
                             <f:option value="true" label="Active"/>
                             <f:option value="false" label="InActive"/>
                         </f:select></td>
@@ -47,7 +77,7 @@
                         <input type="button" value="Back" onclick="history.go(-1)"/>
                     </td>
                 </tr>
-        </table>
-    </f:form>
+            </table>
+        </f:form>
     </body>
 </html>

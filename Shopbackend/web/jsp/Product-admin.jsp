@@ -217,8 +217,6 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="">          
                                     <table class="table table-bordered">
                                         <thead>
@@ -261,7 +259,7 @@
                                                                 <i class="ace-icon fa fa-search-plus bigger-130"></i>
                                                             </a>
 
-                                                            <a class="green" href="#">
+                                                            <a class="green" href="iUpdate.htm?productId=${P.productId}">
                                                                 <i class="ace-icon fa fa-pencil bigger-130"></i>
                                                             </a>
 
@@ -275,6 +273,7 @@
                                         </tbody>
                                     </table>
                                 </div>    
+                                <a href="iInsert.htm">Create New Product</a>
                                 <a href="">${url}</a>
                                 <!-- PAGE CONTENT ENDS -->
                             </div><!-- /.col -->
